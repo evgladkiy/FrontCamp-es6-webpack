@@ -3,7 +3,7 @@ import ArticlesCreator from './articles-creator.js';
 
 require('./../less/articles.less');
 
-export default () => {
-    window.newsApp.articlesProvider = new ArticlesProvider();
-    window.newsApp.articlesCreator = new ArticlesCreator();
+export default {
+    ArticlesProvider,
+    ArticlesCreator,
 };

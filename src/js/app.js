@@ -14,21 +14,24 @@ export default class App {
         `;
     }
 
+    async getArticles(searchValue) {
+        if (this.articlesCreator === undefined || this.articlesProvider === undefined) {
+            const module = await import(/* webpackChunkName: "articles" */ './articles');
+            const { ArticlesCreator, ArticlesProvider } = module.default;
+
+            this.articlesProvider = new ArticlesProvider();
+            this.articlesCreator = new ArticlesCreator();
+        }
+
+        this.searchAndRenderArticles(this.radioButtonsValue, searchValue);
+}
+
     submitFormHandler(e) {
         const searchValue = this.form[this.radioButtonsValue].value;
         e.preventDefault();
 
         if (searchValue !== '') {
-            if (this.articlesCreator === undefined || this.articlesProvider === undefined) {
-                import('./articles.js').then((module) => {
-                    module.default();
-                })
-                .then(() => {
-                    this.searchAndRenderArticles(this.radioButtonsValue, searchValue);
-                });
-            } else {
-                this.searchAndRenderArticles(this.radioButtonsValue, searchValue);
-            }
+            this.getArticles(searchValue);
         }
     }
 

@@ -3,15 +3,13 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const stylesLess = new ExtractTextPlugin({ filename: 'styles.css' });
-
 module.exports = merge(common, {
     devtool: false,
     module: {
         rules: [
             {
                 test: /styles\.less$/,
-                use: stylesLess.extract({
+                use: ExtractTextPlugin.extract({
                     use: [
                         {
                             loader: 'css-loader',
@@ -19,6 +17,7 @@ module.exports = merge(common, {
                                 minimize: true,
                             },
                         },
+                        { loader: 'postcss-loader' },
                         { loader: 'less-loader' },
                     ],
                     fallback: 'style-loader',
@@ -28,6 +27,6 @@ module.exports = merge(common, {
     },
     plugins: [
         new UglifyJSPlugin(),
-        stylesLess,
+        new ExtractTextPlugin({ filename: 'styles.css' }),
     ],
 });

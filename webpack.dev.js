@@ -3,8 +3,6 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const stylesLess = new ExtractTextPlugin({ filename: 'styles.css' });
-
 module.exports = merge(common, {
     devtool: 'source-map',
     devServer: {
@@ -18,7 +16,7 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /styles\.less$/,
-                use: stylesLess.extract({
+                use: ExtractTextPlugin.extract({
                     use: [
                         {
                             loader: 'css-loader',
@@ -34,6 +32,6 @@ module.exports = merge(common, {
         ],
     },
     plugins: [
-        stylesLess,
+        new ExtractTextPlugin({ filename: 'styles.css' }),
     ],
 });

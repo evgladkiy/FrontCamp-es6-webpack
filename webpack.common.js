@@ -5,11 +5,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         app: './src/js/index.js',
-        articles: './src/js/articles.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
+        chunkFilename: '[name].js',
     },
     resolveLoader: {
         modules: [
@@ -21,25 +21,25 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
                 },
             },
             {
                 test: /articles\.less$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules)/,
                 use: [
                     { loader: 'style-loader' },
                     { loader: 'css-loader' },
+                    { loader: 'postcss-loader' },
                     { loader: 'less-loader' },
                 ],
             },
             {
                 test: /\.json$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules)/,
                 use: [
-                    { loader: 'json-loader' },
                     { loader: 'json-delete-attr-loader' },
                 ],
             },

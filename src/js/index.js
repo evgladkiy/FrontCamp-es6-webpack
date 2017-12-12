@@ -1,10 +1,8 @@
 import App from './app.js';
 
 require('./../less/styles.less');
-const data = require('./../json/data.json');
+require('./../json/data.json');
 
-console.log(data);
+const newsApp = new App();
 
-window.newsApp = new App();
-
-window.newsApp.init();
+newsApp.init();
