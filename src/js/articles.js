@@ -1,7 +1,6 @@
-import ArticlesProvider from './articles-provider.js';
-import ArticlesCreator from './articles-creator.js';
-
-require('./../less/articles.less');
+import ArticlesProvider from './articles-provider';
+import ArticlesCreator from './articles-creator';
+import './../less/articles.less';
 
 export default {
     ArticlesProvider,

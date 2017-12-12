@@ -24,7 +24,7 @@ export default class App {
         }
 
         this.searchAndRenderArticles(this.radioButtonsValue, searchValue);
-}
+    }
 
     submitFormHandler(e) {
         const searchValue = this.form[this.radioButtonsValue].value;
