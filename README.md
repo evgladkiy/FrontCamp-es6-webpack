@@ -1,6 +1,6 @@
 ## Webpack
 
-###  [Demo](file:///D:/work/Git/FrontCamp2017Q4/webpack/dist/)
+###  [Demo](https://evgladkiy.github.io/FrontCamp-es6-webpack/dist/)
 
 ### Rate Criterias:
 
@@ -20,6 +20,6 @@ create button "Show News" on the main page.
 your app should load necessary code(css, js) for rendering newsList only after clicking on the button above.
 
 - custom loader
-loader should be chainable 
+loader should be chainable
 applicable for /\.json/
 remove all number attributes in source
