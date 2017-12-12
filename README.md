@@ -15,14 +15,14 @@ Improve your application for Webpack:
 - Configure Webpack-dev-server
 
 (4-5) stars
-- AMD :
-***
+- AMD :  
+
 create button "Show News" on the main page.  
 
 your app should load necessary code(css, js) for rendering newsList only after clicking on the button above.
 
-- custom loader:
-***
+- custom loader:  
+
 loader should be chainable  
 
 applicable for /\.json/  
