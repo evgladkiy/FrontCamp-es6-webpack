@@ -16,10 +16,10 @@ Improve your application for Webpack:
 
 (4-5) stars
 - AMD :
-<small>create button "Show News" on the main page.</small>
-your app should load necessary code(css, js) for rendering newsList only after clicking on the button above.
+* create button "Show News" on the main page.
+* your app should load necessary code(css, js) for rendering newsList only after clicking on the button above.
 
 - custom loader
-<small>loader should be chainable</small>
-<small>applicable for /\.json/</small>
-<small>remove all number attributes in source</small>
+* loader should be chainable
+* applicable for /\.json/
+* remove all number attributes in source
